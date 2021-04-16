@@ -1,0 +1,33 @@
+name: Octo Organization CI
+
+on:
+  push:
+    branches: [ 'main' ]
+    paths:
+      - '**'
+      - '!docs/**'
+  pull_request:
+    branches: [ 'main' ]
+    paths:
+      - '**'
+      - '!docs/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello from test job
+
+  build:
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: bash ./test.sh
