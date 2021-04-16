@@ -14,3 +14,4 @@ jobs:
         ls -la
         env
         echo "PR number = ${{ github.event.pull_request.number }}"
+        echo "Will it run?"
